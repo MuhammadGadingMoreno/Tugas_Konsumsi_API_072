@@ -1,0 +1,456 @@
+{
+	"info": {
+		"_postman_id": "api-praktikum-collection-v1",
+		"name": "API Praktikum (Asset, Mahasiswa, Peminjaman, Produk, Transaksi)",
+		"description": "Postman collection untuk API Master Asset, Master Mahasiswa, Master Produk, Transaksi Peminjaman, dan Transaksi Penjualan.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://api.melangkah.my.id",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Master Asset",
+			"item": [
+				{
+					"name": "Read All Asset",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/asset/read.php",
+							"host": ["{{base_url}}"],
+							"path": ["asset", "read.php"]
+						}
+					}
+				},
+				{
+					"name": "Detail Asset",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/asset/detail.php?id=1",
+							"host": ["{{base_url}}"],
+							"path": ["asset", "detail.php"],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Asset",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nama_asset\": \"Laptop Asus ROG\",\n  \"kategori\": \"Elektronik\",\n  \"jumlah\": 3,\n  \"kondisi\": \"Baik\",\n  \"lokasi\": \"Lab Komputer 2\",\n  \"status\": \"Tersedia\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/asset/create.php",
+							"host": ["{{base_url}}"],
+							"path": ["asset", "create.php"]
+						}
+					}
+				},
+				{
+					"name": "Update Asset",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"nama_asset\": \"Proyektor Epson EB-X400 (Updated)\",\n  \"kategori\": \"Elektronik\",\n  \"jumlah\": 5,\n  \"kondisi\": \"Baik\",\n  \"lokasi\": \"Lab Komputer 1\",\n  \"status\": \"Tersedia\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/asset/update.php",
+							"host": ["{{base_url}}"],
+							"path": ["asset", "update.php"]
+						}
+					}
+				},
+				{
+					"name": "Delete Asset",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/asset/delete.php?id=3",
+							"host": ["{{base_url}}"],
+							"path": ["asset", "delete.php"],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Master Mahasiswa",
+			"item": [
+				{
+					"name": "Read All Mahasiswa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/mahasiswa/read.php",
+							"host": ["{{base_url}}"],
+							"path": ["mahasiswa", "read.php"]
+						}
+					}
+				},
+				{
+					"name": "Detail Mahasiswa by ID / NIM",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/mahasiswa/detail.php?id=1",
+							"host": ["{{base_url}}"],
+							"path": ["mahasiswa", "detail.php"],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Mahasiswa",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nim\": \"210101003\",\n  \"nama\": \"Budi Santoso\",\n  \"jurusan\": \"Teknik Komputer\",\n  \"angkatan\": 2022,\n  \"email\": \"budi.santoso@example.com\",\n  \"telepon\": \"083456789012\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/mahasiswa/create.php",
+							"host": ["{{base_url}}"],
+							"path": ["mahasiswa", "create.php"]
+						}
+					}
+				},
+				{
+					"name": "Update Mahasiswa",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"nim\": \"210101001\",\n  \"nama\": \"Ahmad Rizki Pratama\",\n  \"jurusan\": \"Teknik Informatika\",\n  \"angkatan\": 2021,\n  \"email\": \"ahmad.rizki@example.com\",\n  \"telepon\": \"081234567890\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/mahasiswa/update.php",
+							"host": ["{{base_url}}"],
+							"path": ["mahasiswa", "update.php"]
+						}
+					}
+				},
+				{
+					"name": "Delete Mahasiswa",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/mahasiswa/delete.php?id=3",
+							"host": ["{{base_url}}"],
+							"path": ["mahasiswa", "delete.php"],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Transaksi Peminjaman",
+			"item": [
+				{
+					"name": "Read All Peminjaman",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/peminjaman/read.php",
+							"host": ["{{base_url}}"],
+							"path": ["peminjaman", "read.php"]
+						}
+					}
+				},
+				{
+					"name": "Detail Peminjaman",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/peminjaman/detail.php?id_peminjaman=1",
+							"host": ["{{base_url}}"],
+							"path": ["peminjaman", "detail.php"],
+							"query": [
+								{
+									"key": "id_peminjaman",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Peminjaman",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id_mahasiswa\": 1,\n  \"id_asset\": 1,\n  \"jumlah\": 1,\n  \"tanggal_pinjam\": \"2026-10-02\",\n  \"tanggal_kembali\": \"2026-10-05\",\n  \"keterangan\": \"Untuk Presentasi Tugas Akhir\",\n  \"status_peminjaman\": \"Pending\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/peminjaman/create.php",
+							"host": ["{{base_url}}"],
+							"path": ["peminjaman", "create.php"]
+						}
+					}
+				},
+				{
+					"name": "Update Peminjaman",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id_peminjaman\": 1,\n  \"status_peminjaman\": \"Dikembalikan\",\n  \"tanggal_kembali\": \"2026-10-04\",\n  \"keterangan\": \"Dikembalikan dalam kondisi baik\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/peminjaman/update.php",
+							"host": ["{{base_url}}"],
+							"path": ["peminjaman", "update.php"]
+						}
+					}
+				},
+				{
+					"name": "Delete Peminjaman",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/peminjaman/delete.php?id_peminjaman=2",
+							"host": ["{{base_url}}"],
+							"path": ["peminjaman", "delete.php"],
+							"query": [
+								{
+									"key": "id_peminjaman",
+									"value": "2"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Master Produk (Existing)",
+			"item": [
+				{
+					"name": "Read All Produk",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/produk/read.php",
+							"host": ["{{base_url}}"],
+							"path": ["produk", "read.php"]
+						}
+					}
+				},
+				{
+					"name": "Detail Produk",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/produk/detail.php?id=1",
+							"host": ["{{base_url}}"],
+							"path": ["produk", "detail.php"],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Produk",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nama_produk\": \"Kopi Hitam\",\n  \"jenis_produk\": \"Minuman\",\n  \"stok\": 50,\n  \"harga_beli\": 5000,\n  \"harga_jual\": 10000,\n  \"status\": \"Tersedia\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/produk/create.php",
+							"host": ["{{base_url}}"],
+							"path": ["produk", "create.php"]
+						}
+					}
+				},
+				{
+					"name": "Update Produk",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"nama_produk\": \"Kopi Hitam Robusta\",\n  \"jenis_produk\": \"Minuman\",\n  \"stok\": 45,\n  \"harga_beli\": 5000,\n  \"harga_jual\": 12000,\n  \"status\": \"Tersedia\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/produk/update.php",
+							"host": ["{{base_url}}"],
+							"path": ["produk", "update.php"]
+						}
+					}
+				},
+				{
+					"name": "Delete Produk",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/produk/delete.php?id=1",
+							"host": ["{{base_url}}"],
+							"path": ["produk", "delete.php"],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Transaksi Produk (Existing)",
+			"item": [
+				{
+					"name": "Read All Transaksi",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/transaksi/read.php",
+							"host": ["{{base_url}}"],
+							"path": ["transaksi", "read.php"]
+						}
+					}
+				},
+				{
+					"name": "Create Transaksi",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id_produk\": 1,\n  \"jumlah\": 2\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/transaksi/create.php",
+							"host": ["{{base_url}}"],
+							"path": ["transaksi", "create.php"]
+						}
+					}
+				},
+				{
+					"name": "Update Transaksi",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id_transaksi\": 1,\n  \"status_transaksi\": \"Selesai\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/transaksi/update.php",
+							"host": ["{{base_url}}"],
+							"path": ["transaksi", "update.php"]
+						}
+					}
+				}
+			]
+		}
+	]
+}
